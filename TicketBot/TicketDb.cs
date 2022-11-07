@@ -14,7 +14,7 @@ namespace TicketBot
 {
 	public class TicketDb
 	{
-		private string SpreadsheetId = "1flOKJwxRT0r8AyDLxNSAROc0hw_3NBEGjaizhEQOy6k";
+		private string SpreadsheetId = "1NsS_OTMQtc2E4bSWJ2E84uaiQQzjZMBHlLAxHvfgz6g";
 		private SheetsService Service { get; }
 		public List<Ticket> CachedTickets { get; set; } = new();
 

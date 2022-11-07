@@ -1,0 +1,4 @@
+docker stop ticketbot
+docker rm ticketbot
+docker run -e ASPNETCORE_ENVIRONMENT=Development -e TZ=Europe/Amsterdam -v ticketbot:/app/config -p 1995:1992 -d --name ticketbot ticketbot
+docker logs -f ticketbot
