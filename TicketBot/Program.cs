@@ -16,20 +16,18 @@ IServiceProvider services;
 IConfiguration configuration;
 
 configuration = new ConfigurationBuilder()
-	.AddJsonFile("appsettings.json", optional: true)
+	.AddJsonFile("config/appsettings.json", optional: true)
 	.AddUserSecrets<Program>()
 	.Build();
 
-
-
-UserCredential credential;
-using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
+GoogleCredential credential;
+using(var stream = new FileStream("config/client_secrets.json", FileMode.Open, FileAccess.Read))
 {
-	credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-		GoogleClientSecrets.FromStream(stream).Secrets,
-		new[] { "https://www.googleapis.com/auth/spreadsheets" },
-		"user", CancellationToken.None, new FileDataStore("TicketBot"));
+	credential = GoogleCredential.FromStream(stream);
+	if (credential.IsCreateScopedRequired)
+		credential = credential.CreateScoped(new string[] { SheetsService.Scope.Drive });
 }
+
 
 var service = new SheetsService(new BaseClientService.Initializer()
 {
@@ -55,7 +53,7 @@ var serviceBuilder = new ServiceCollection()
 
 try
 {
-	serviceBuilder.AddSingleton<Config>(JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json")) ?? new Config());
+	serviceBuilder.AddSingleton<Config>(JsonSerializer.Deserialize<Config>(File.ReadAllText("config/config.json")) ?? new Config());
 }catch(Exception)
 {
 	serviceBuilder.AddSingleton<Config>();
