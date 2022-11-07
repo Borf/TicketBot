@@ -77,6 +77,19 @@ namespace TicketBot.modules
 				Reporter = Context.User.Username,
 				ReporterId = Context.User.Id,
 			};
+
+			if(Context.User is SocketGuildUser user)
+			{
+				if (user.Roles.Any(r => r.Id == 991025896167211060)) { ticket.Region = Ticket.Regions.CBT; }
+				if (user.Roles.Any(r => r.Id == 886995559418826823)) { ticket.Region = Ticket.Regions.EU; }
+				if (user.Roles.Any(r => r.Id == 886995111341338705)) { ticket.Region = Ticket.Regions.NA_EL; }
+				if (user.Roles.Any(r => r.Id == 886995485875904572)) { ticket.Region = Ticket.Regions.NA_DP; }
+				if (user.Roles.Any(r => r.Id == 935837330395267132)) { ticket.Region = Ticket.Regions.SEA_EL; }
+				if (user.Roles.Any(r => r.Id == 935837514000896000)) { ticket.Region = Ticket.Regions.SEA_MP; }
+				if (user.Roles.Any(r => r.Id == 935837514625871953)) { ticket.Region = Ticket.Regions.SEA_MOF; }
+				if (user.Roles.Any(r => r.Id == 978971770604355615)) { ticket.Region = Ticket.Regions.SEA_VG; }
+			}
+
 			if (!string.IsNullOrEmpty(modalData.char_id))
 			{
 				try
@@ -399,7 +412,14 @@ namespace TicketBot.modules
 		public async Task TicketFixed(int ticketId)
 		{
 			var interaction = (SocketMessageComponent)Context.Interaction;
-			await RespondWithModalAsync<DevResponseModal>("TicketFixedReason:" + ticketId);
+			var ticket = ticketDb.GetTicket(ticketId);
+
+			var mb = new ModalBuilder()
+				.WithCustomId("TicketFixedReason:" + ticketId)
+				.WithTitle("What was the dev response?")
+				.AddTextInput("response", "response", TextInputStyle.Paragraph, "", value: ticket.Response)
+				;
+			await RespondWithModalAsync(mb.Build());
 		}
 
 		[DoAdminCheck]

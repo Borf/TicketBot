@@ -54,7 +54,7 @@ namespace TicketBot
 
 		public void Save()
 		{
-			File.WriteAllText("config.json", JsonSerializer.Serialize(this));
+			File.WriteAllText("config/config.json", JsonSerializer.Serialize(this));
 		}
 	}
 }

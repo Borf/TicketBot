@@ -71,10 +71,14 @@ namespace TicketBot
 		public enum Regions
 		{
 			None,
-			SEA,
 			EU,
 			CBT,
-			NA,
+			NA_EL,
+			NA_DP,
+			SEA_EL,
+			SEA_MP,
+			SEA_MOF,
+			SEA_VG
 		}
 		public int Row { get; set; }
 		public ChangeLogged<ulong> DCMessageId { get; set; } = 0;
