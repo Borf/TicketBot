@@ -1,5 +1,3 @@
-# Ticket Bot Help Page
-
 ## Tickets
 
 We are tracking issues through tickets. These tickets are shown on discord, and stored in the bot so we can access them easily. Tickets are submitted by you, the players and then handled by the moderation staff of this Discord server. This is not a support ticket service, we can not help you recover accounts, but we use this to communicate with the development team. 
