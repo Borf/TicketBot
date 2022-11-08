@@ -180,6 +180,8 @@ namespace TicketBot
 				var msg = await channel.SendMessageAsync(null, false, embed, components: components);
 				DCMessageId = msg.Id;
 				ticketDb.Update(this);
+
+				await channel.CreateThreadAsync(this.ShortDescription, ThreadType.PublicThread, ThreadArchiveDuration.OneWeek, msg);
 			}
 		}
 
