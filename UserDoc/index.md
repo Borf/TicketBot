@@ -10,8 +10,11 @@ Tickets have a state, indicating how they are picked up. When you create a ticke
 
 You can create a ticket by typing /report in the appropriate channel. Make sure you select the command
 ![create.png](create.png)
+
 After this, a popup will appear so you can fill in the appropriate information
+
 ![details.png](details.png)
+
 Make sure you fill in the appropriate information. Keep the short description to a single sentence, and explain your issue in the long description box. This keeps the discord tidy, as by default only the short description will be shown on discord. The character ID will always stay private and is not shown to the public. 
 
 After creating the ticket, the ticket bot will send you a message in private to add images or videos (mind the discord upload limit) to your ticket. To add an image to your ticket, just send the image to the bot in a DM, and a dropdown box will appear with your tickets. You can then pick one of the tickets and the image will be added
