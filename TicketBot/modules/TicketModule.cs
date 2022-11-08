@@ -244,12 +244,12 @@ namespace TicketBot.modules
 
 			string statusLog = "";
 			foreach (var entry in ticket.StatusHistory.Value)
-				statusLog += entry.DateTime.ToString("dd-MM-yyy") + " -> " + entry.NewStatus + "\n";
+				statusLog += entry.DateTime.ToString("dd-MM-yyyy") + " -> " + entry.NewStatus + "\n";
 
 			var eb = new EmbedBuilder()
 				.WithTitle(ticket.ShortDescription.ToString())
 				.AddField("Description", ticket.LongDescription.ToString()+" ")
-				.AddField("Date Reported", ticket.ReportDate.ToString() + " ")
+				.AddField("Date Reported", ticket.ReportDate.Value.ToString("dd-MM-yyyy") + " ")
 				.AddField("Reporter", ticket.Reporter.ToString() + " ")
 				;
 			if (!string.IsNullOrEmpty(ticket.Images))
