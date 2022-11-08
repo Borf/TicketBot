@@ -182,7 +182,9 @@ namespace TicketBot.modules
 			ticket.DCMessageId = msg.Id;
 			ticketDb.Update(ticket);
 
-			if(!string.IsNullOrEmpty(modalData.Reason.Trim()))
+			await channel.CreateThreadAsync(ticket.ShortDescription, ThreadType.PublicThread, ThreadArchiveDuration.OneWeek, msg);
+
+			if (!string.IsNullOrEmpty(modalData.Reason.Trim()))
 				await Context.Guild.Users.First(u => u.Id == ticket.ReporterId).SendMessageAsync("Your report of '" + ticket.ShortDescription + "' has been set through.\nWe ask you to update your report with the following information.\n\n" + modalData.Reason);
 			else
 				await Context.Guild.Users.First(u => u.Id == ticket.ReporterId).SendMessageAsync("Your report of '" + ticket.ShortDescription + "' has been set through.\nPlease be patient as we follow up on this report");
