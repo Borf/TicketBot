@@ -19,3 +19,7 @@ After creating the ticket, the ticket bot will send you a message in private to 
 ## Ticket Discussion
 
 Certain tickets can need some discussion. In that case, keep the discussion on a thread on the ticket. 
+
+## Ticket Details
+
+All tickets get a button to show the details for a ticket. The details include the longer description and the state history (when tickets got reported, approved etc). It will also show the response from the devs once something has been fixed
