@@ -14,7 +14,7 @@ namespace TicketBot.attributes
 			var config = services.GetRequiredService<Config>()[context.Guild.Id];
 			if (context.User is SocketGuildUser guildUser)
 			{
-				if (config.AdminRole == 0 || guildUser.Roles.Any(gr => gr.Id == config.AdminRole))
+				if (config.AdminRole == 0 || guildUser.Roles.Any(gr => gr.Id == config.AdminRole) || ((SocketGuildUser)context.User).GuildPermissions.Administrator)
 					return Task.FromResult(PreconditionResult.FromSuccess());
 				else
 					return Task.FromResult(PreconditionResult.FromError("You're not an admin"));

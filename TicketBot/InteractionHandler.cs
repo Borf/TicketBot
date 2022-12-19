@@ -92,7 +92,7 @@ namespace TicketBot
 		{
 			try
 			{
-				Console.WriteLine("Got interaction " + interaction.Data.ToString());
+				Console.WriteLine("Got interaction from user " + interaction.User.Username);
 				// Create an execution context that matches the generic type parameter of your InteractionModuleBase<T> modules.
 				var context = new SocketInteractionContext(client, interaction);
 
