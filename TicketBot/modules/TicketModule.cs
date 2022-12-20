@@ -266,7 +266,7 @@ namespace TicketBot.modules
 			var cb = new ComponentBuilder();
 			bool isAdmin = false;
 			if (Context.User is SocketGuildUser guildUser)
-				if (guildUser.Roles.Any(r => r.Id == config[Context].AdminRole))
+				if (guildUser.Roles.Any(r => r.Id == config[Context].AdminRole) || guildUser.GuildPermissions.Administrator)
 				{
 					isAdmin = true;
 					cb.WithButton("Edit", "EditDetails:" + ticket.Id);
