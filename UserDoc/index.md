@@ -19,8 +19,16 @@ After creating the ticket, the ticket bot will send you a message in private to 
 
 ## Ticket Discussion
 
-Certain tickets can need some discussion. In that case, keep the discussion on a thread on the ticket. 
+Certain tickets can need some discussion. In that case, keep the discussion on a thread on the ticket. This thread will automatically be created when the ticket gets approved by a moderator. If the status of a ticket changes, a notification will be sent in the thread that goes with the ticket discussion.
 
 ## Ticket Details
 
 All tickets get a button to show the details for a ticket. The details include the longer description and the state history (when tickets got reported, approved etc). It will also show the response from the devs once something has been fixed
+
+## Adding images to your ticket
+
+If the ticket is not approved by a moderator yet, there is no post about it yet in the discord server. To add an image, you can DM the image to the bot (the bot should have messaged you when you created the ticket), and select the report it goes with.
+
+After the ticket got approved, you can either DM the image, or post it in the thread. After you posted the image in the thread that goes with your ticket, you need to rightclick it, and select 'apps', and then 'add to ticket'. Only the author of the ticket, and the moderators can do this, but you can also add other people's images this way.
+
+![adding.png](adding.png)
